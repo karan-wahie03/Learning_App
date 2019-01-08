@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: workshop-app
+  namespace: workshop
+  labels:
+    app: workshop-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: workshop-app
+  template:
+    metadata:
+      labels:
+        app: workshop-app
+    spec:
+      containers:
+      - name: workshop-app
+        image: karanwahie/workshop-java-app
+        ports:
+        - containerPort: 8085
+
