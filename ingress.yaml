@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: workshop-app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: workshop-app.gl-poc.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: workshop
+          servicePort: 8085
